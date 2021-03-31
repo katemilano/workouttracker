@@ -36,6 +36,18 @@ app.post("/", (req, res) => {
     };
 });
 
+//???????????????
+app.put("/workouts", (req, res) => {  
+    db.notes.insert(req.body, (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(data);
+      }
+    });
+});
+
+
 //insert new workout
 app.post("/workouts", (req, res) => {  
     db.notes.insert(req.body, (error, data) => {
