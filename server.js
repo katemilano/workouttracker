@@ -1,19 +1,13 @@
 const express = require("express");
 const mongojs = require("mongojs");
-const logger = require("morgan");
-const path = require("path");
 
 const app = express();
-
-app.use(logger("dev"));
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+const PORT = 3000;
 
 app.use(express.static("public"));
 
-const databaseUrl = "notetaker";
-const collections = ["notes"];
+const databaseUrl = "workout";
+const collections = ["exercise"];
 
 const db = mongojs(databaseUrl, collections);
 
@@ -26,15 +20,15 @@ app.get("/", (req, res) => {
 });
 
 //post last workout
-app.post("/", (req, res) => {
-    db.getLastInsertedDocument.find({}).sort({_id:-1}).limit(1) (err, data) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(data);
-      }  
-    };
-});
+// app.post("/", (req, res) => {
+//     db.getLastInsertedDocument.find({}).sort({_id:-1}).limit(1) (err, data) => {
+//       if (err) {
+//         res.send(err);
+//       } else {
+//         res.send(data);
+//       }  
+//     };
+// });
 
 //???????????????
 app.put("/workouts", (req, res) => {  
