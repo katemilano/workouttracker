@@ -26,7 +26,7 @@ Running the application
 
 ## Technology
 
-Technologies used: JavaScript, ORM, jQuery, Node.js, Express.js, Handlebars.js, mySQL Database, HTML, CSS, BootStrap, Heroku
+Technologies used: MongoDB, Mongoose, JavaScript, Node.js, Express.js, HTML, CSS, and Heroku.
 
 ## Installation
 To install necessary dependencies, run the following command:
