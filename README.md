@@ -22,7 +22,7 @@
 
 ## Photos
 Running the application
-<img src="TBH">
+<img src="images/dashboard.png">
 
 ## Technology
 
