@@ -1,6 +1,7 @@
 # Workout Tracker
 
 ## Description
+This application allows you to create your exercise and input 
 
 ## Table of Content
 
