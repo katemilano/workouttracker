@@ -1,6 +1,7 @@
 # Workout Tracker
 
 ## Description
+This application allows you to create your exercise and workouts.  With the proper input, you are able to track the type, weight, sets, reps, and duration of the exercise for weight excerises. If the exercise is a cardio exercise, you are able to track my distance traveled.  These results can be displayed on the dashboard with weekly tracking of your workouts.
 
 ## Table of Content
 
@@ -22,11 +23,11 @@
 
 ## Photos
 Running the application
-<img src="TBH">
+<img src="images/dashboard.png">
 
 ## Technology
 
-Technologies used: JavaScript, ORM, jQuery, Node.js, Express.js, Handlebars.js, mySQL Database, HTML, CSS, BootStrap, Heroku
+Technologies used: MongoDB, Mongoose, JavaScript, Node.js, Express.js, HTML, CSS, and Heroku.
 
 ## Installation
 To install necessary dependencies, run the following command:
