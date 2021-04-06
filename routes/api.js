@@ -1,46 +1,53 @@
-const express = require("express");
+const router = require("express").Router();
+const Workout = require('../models/workout');
 
-const API = {
-  async getLastWorkout() {
-    let res;
-    try {
-      res = await fetch("/api/workouts");
-    } catch (err) {
-      console.log(err)
-    }
-    const json = await res.json();
-
-    return json[json.length - 1];
-  },
-  async addExercise(data) {
-    const id = location.search.split("=")[1];
-
-    const res = await fetch("/api/workouts/" + id, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+// Routes
+  router.get('/api/workouts', (req, res) => {
+    Workout.aggregate([
+      {
+        $addFields: {
+          totalDuration: {
+            $sum: '$exercises.duration'
+          }
+        }
+      }
+    ]).then(data => {
+      res.json(data);
     });
+  });
 
-    const json = await res.json();
-
-    return json;
-  },
-  async createWorkout(data = {}) {
-    const res = await fetch("/api/workouts", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
+  router.get('/api/workouts/range', (req, res) => {
+    Workout.aggregate([
+      {
+        $addFields: {
+          totalDuration: {
+            $sum: '$exercises.duration'
+          }
+        }
+      }
+    ])
+    .sort({ _id: -1 })
+    .limit(7)
+    .then(data => {
+      res.json(data);
     });
+  });
 
-    const json = await res.json();
 
-    return json;
-  },
+  router.post('/api/workouts', (req, res) => {
+    Workout.create({}).then(data => res.json(data));
+  });
 
-  async getWorkoutsInRange() {
-    const res = await fetch(`/api/workouts/range`);
-    const json = await res.json();
+  router.get('/put', (req, res) => {
+    Workout.findByIdAndUpdate(
+      params.id, 
+      { $push: { exercises: req.body } }, 
+      { new: true, runValidators: true }
+    ).then( data => res.json(data));
+  });
 
-    return json;
-  },
-};
+  router.delete("/api/workouts", (req, res) => {
+    Workout.findByIdAndDelete(req.body.id).then(data => res.json(data));
+  });
+
+  module.exports = router;
