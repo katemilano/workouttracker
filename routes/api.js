@@ -2,6 +2,25 @@ const router = require("express").Router();
 const Workout = require('../models/workout');
 
 // Routes
+router.post('/api/workouts', (req, res) => {
+  Workout.create({})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.put('/api/workouts/:id', ({body, params}, res) => {
+  Workout.findByIdAndUpdate(
+    params.id, 
+    { $push: { exercises: body } }, 
+    { new: true, runValidators: true }
+  ).then( dbWorkout => res.json(dbWorkout));
+  console.log(dbWorkout);
+});
+
   router.get('/api/workouts', (req, res) => {
     Workout.aggregate([
       {
@@ -33,21 +52,11 @@ const Workout = require('../models/workout');
     });
   });
 
-
-  router.post('/api/workouts', (req, res) => {
-    Workout.create({}).then(data => res.json(data));
-  });
-
-  router.get('/put', (req, res) => {
-    Workout.findByIdAndUpdate(
-      params.id, 
-      { $push: { exercises: req.body } }, 
-      { new: true, runValidators: true }
-    ).then( data => res.json(data));
-  });
-
   router.delete("/api/workouts", (req, res) => {
     Workout.findByIdAndDelete(req.body.id).then(data => res.json(data));
   });
 
   module.exports = router;
+
+
+  
