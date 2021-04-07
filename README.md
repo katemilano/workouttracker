@@ -33,7 +33,7 @@ Looking at stats page
 
 ## Technology
 
-Technologies used: MongoDB, Mongoose, JavaScript, Node.js, Express.js, HTML, CSS, and Heroku.
+Technologies used: MongoDB, Mongoose, Express.js, JavaScript, HTML, CSS, and Heroku.
 
 ## Installation
 To install necessary dependencies, run the following command:
