@@ -1,7 +1,7 @@
 # Workout Tracker
 
 ## Description
-This application allows you to create your exercise and workouts.  With the proper input, you are able to track the type, weight, sets, reps, and duration of the exercise for weight excerises. If the exercise is a cardio exercise, you are able to track my distance traveled.  These results can be displayed on the dashboard with weekly tracking of your workouts.
+This application allows you to input a workouts.  With the proper input, you are able to track the weight, and duration of the exercise for weight excerises over the past 7 workouts. If the exercise is a cardio exercise, you are only able to track my duration.  These results can be displayed on the dashboard with charts able showing which workouts contributed the most/least.  This also allows you to remove workouts to see only certain ones. 
 
 ## Table of Content
 
