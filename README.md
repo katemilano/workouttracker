@@ -19,11 +19,17 @@ This application allows you to create your exercise and workouts.  With the prop
 
 ## Heroku
 
-<a href="TBH">Heroku Link</a>
+<a href="https://workouttracker-kate.herokuapp.com/">Heroku Link</a>
 
 ## Photos
 Running the application
 <img src="images/dashboard.png">
+
+Adding a workout
+<img src="images/add.png">
+
+Looking at stats page
+<img src="images/stats.png">
 
 ## Technology
 
